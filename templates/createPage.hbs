@@ -1,0 +1,34 @@
+{{> headerNotHome}}
+<h1 class="form-Title">Create Product Page</h1>
+<div class="custom-Line"></div>
+<form id="createForm" action="action_page.php"  onsubmit="createForm(event)">
+  
+  <div class="container">
+    <label for="uname"><b>Title</b></label>
+    <br>  
+    <input type="text" id="create-Title" placeholder="Enter Title" name="uname">
+<br>  
+    <label for="psw"><b>Description</b></label>
+    <br>  
+    <input type="text" id="create-Description" placeholder="Enter Description" name="psw" >
+<br>
+<br>  
+    <label for="psw"><b>Image URL</b></label>
+    <br>  
+    <input type="url" id="create-Image" placeholder="Enter Image URL" name="psw" >
+<br>
+<br>  
+    <label for="psw"><b>Price</b></label>
+    <br>  
+    <input type="number" id="create-Price" placeholder="Enter Price" name="psw" >
+<br>
+
+<br>
+<br>
+  </div>
+  <div class="container" style="background-color:#f1f1f1">
+    <button type="submit" id="button-Login" class="cancelbtn">Create</button>
+  </div>
+  
+</form>
+{{> footer}}

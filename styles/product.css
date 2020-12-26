@@ -1,0 +1,23 @@
+.post {
+    display: inline-block;
+    text-align: center;
+    align-content: center;
+    margin: 30px;
+    font-size: 10px;
+}
+
+.product-Image {
+    border: 3px solid #202020;
+    width: 300px;
+    height: 370px;
+}
+
+.product-Image:hover {
+    border: 6px solid #FFDF6C;
+    cursor: pointer;
+}
+
+.posts {
+    position: center;
+    text-align: center;
+}

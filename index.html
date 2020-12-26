@@ -1,0 +1,165 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data transfer</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/footer.css">
+    <link rel="stylesheet" href="./styles/body.css">
+    <link rel="stylesheet" href="./styles/logo.css">
+    <link rel="stylesheet" href="./styles/forms.css">
+    <link rel="stylesheet" href="./styles/product.css">
+    <link rel="stylesheet" href="./styles/details.css">
+    <link rel="stylesheet" href="./styles/shoppingCart.css">
+    <link rel="stylesheet" href="./styles/orderPayment.css">
+
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js"></script>
+
+
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyDGX_-0N6RPDzAdu5snI41AfhE0KmAa_B4",
+            authDomain: "myownspa.firebaseapp.com",
+            projectId: "myownspa",
+            storageBucket: "myownspa.appspot.com",
+            messagingSenderId: "84909775374",
+            appId: "1:84909775374:web:84a45934b8efa0b6dffa5f"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script src="./node_modules/handlebars/dist/handlebars.js"></script>
+
+    <script src="./scripts/service.js" defer></script>
+    <script src="./scripts/router.js" defer></script>
+    <script src="./scripts/init.js" defer></script>
+</head>
+
+
+<body>
+
+    <div id="app">
+
+    </div>
+
+    <script type="text/x-handlebars-template" id="headerTemp">
+        <header id="header" onclick="navigateHandler(event)">
+
+            <img src="./images/Capture.PNG" id="logo">
+            <nav onclick="navigateHandler(event)">
+
+                <ul id="a-Auth">
+                    {{#if isLogged}}
+                    <a class="a-Auth" href="/logout">
+                        <li>Logout</li>
+                    </a>
+                    {{#if admin}}
+                    <a class="a-Auth" href="/create">
+                        <li>Create</li>
+                    </a>
+                    {{/if}}
+                    <a class="a-Auth" style="cursor: default;">
+                        <li>{{email}}</li>
+                    </a>
+                    {{else}}
+                    <a class="a-Auth" href="/login">
+                        <li>Login</li>
+                    </a>
+                    <a class="a-Auth" href="/register">
+                        <li>Register</li>
+                    </a>
+                    {{/if}}
+                </ul>
+            </nav>
+            <nav>
+                <ul onclick="navigateHandler(event)">
+                    <a class="a-Header" href="/home">
+                        <li>Home</li>
+                    </a>
+                    <a class="a-Header" href="/aboutPage">
+                        <li>About</li>
+                    </a>
+                    <a class="a-Header" href="/contactPage">
+                        <li>Contact</li>
+                    </a>
+                </ul>
+            </nav>
+            <h1>Data Transfer Service </h1>
+            {{#if isLogged}}
+            <a href="/cart">
+                <button id="botton-Nav" type="">
+                    Cart
+                </button>
+            </a>
+            {{else}}
+            <a href="/login">
+                <button id="botton-Nav" type="">
+                    Sign In
+                </button>
+            </a>
+            {{/if}}
+
+        </header>
+    </script>
+
+    <script type="text/x-handlebars-template" id="headerNotHomeTemp">
+        <header id="headerNotHome">
+            <img src="./images/Capture.PNG" id="logo">
+            <nav onclick="navigateHandler(event)">
+
+                <ul id="a-Auth">
+                    {{#if isLogged}}
+                    <a class="a-Auth" href="/logout">
+                        <li>Logout</li>
+                    </a>
+                    <a class="a-Auth" style="cursor: default;">
+                        <li>{{email}}</li>
+                    </a>
+                    {{#if admin}}
+                    <a class="a-Auth" href="/create">
+                        <li>Create</li>
+                    </a>
+                    {{/if}} {{else}}
+                    <a class="a-Auth" href="/login">
+                        <li>Login</li>
+                    </a>
+                    <a class="a-Auth" href="/register">
+                        <li>Register</li>
+                    </a>
+                    {{/if}}
+                </ul>
+            </nav>
+            <nav>
+                <ul onclick="navigateHandler(event)">
+                    <a class="a-Header" href="/home">
+                        <li>Home</li>
+                    </a>
+                    <a class="a-Header" href="/aboutPage">
+                        <li>About</li>
+                    </a>
+                    <a class="a-Header" href="/contactPage">
+                        <li>Contact</li>
+                    </a>
+                </ul>
+            </nav>
+            <h1>Data Transfer Service</h1>
+        </header>
+    </script>
+
+    <script type="text/x-handlebars-template" id="footerTemp">
+        <footer id="footer">
+            <h5>
+                Made by FrogStudio
+            </h5>
+        </footer>
+    </script>
+</body>
+
+</html>

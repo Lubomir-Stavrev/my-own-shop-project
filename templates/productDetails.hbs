@@ -1,0 +1,94 @@
+{{>header}}
+<h1 class="page-Title">Details</h1>
+<div class="custom-Line"></div>
+ 
+
+<div onload="window.scrollTo(0, document.body.scrollHeight);" class="details-Page">
+
+  <div class="details-Container" onclick="navigateHandler(event)">
+    <a href="/imagePreview">
+    <img class="detailsImg" src={{image}} alt="">
+
+    </a>
+
+  </div>
+
+ <div class="details-Info" >
+ <a href="/home" onclick="navigateHandler(event)">
+ <button class="custom-Button">Back</button>
+ </a>
+ <br>
+ <br>
+ <br>
+ <h1>Title:{{title}}</h1>
+ <h2>Description</h2>
+    <h3 class="product-Description-Details">{{description}}</h3>
+    <h3>Price: {{price}}lv.</h3>
+
+
+ <h2>{{likes}} likes.</h2>
+{{#if isLogged}}
+
+{{#if admin}}
+{{else}}
+<a onclick="addToCart(event)" href="/buy/{{productId}}">
+ <button class="custom-Button">Buy</button>
+ </a>
+{{#if isLiked}}
+ <a onclick="sendUnlike(event)" href="/unlike/{{productId}}">
+ <button class="custom-Button">Unlike</button>
+ </a>
+ {{else}}
+ <a onclick="sendLike(event)" href="/like/{{productId}}">
+ <button class="custom-Button">Like</button>
+ </a>
+{{/if}}
+{{/if}}
+ <button onclick="showCommentSection(event)" id="commentsButton" class="custom-Button">{{sectionCondition}} Comments</button>
+ {{/if}}
+
+
+{{#if admin}}
+<div >
+ <a onclick="navigateHandler(event)" href="/edit/{{productId}}">
+ <button class="custom-Button">Edit</button>
+ </a>
+
+ <a onclick="requestDelete(event)" href="/delete/{{productId}}">
+ <button class="custom-Button">Delete</button>
+ </a>
+
+</div>
+ {{/if}}
+ </div>
+</div>
+
+
+<div id="comment-Container" style="display:{{displayStyle}}">
+<div class="custom-Full-Line"></div>
+<h1 class="page-Title">Comments</h1>
+<div class="custom-Line"></div>
+<div class="comment-Form">
+  <section class="comment-Section">
+{{#each comments}}
+<p>
+{{profile}}:{{comment}}
+</p>
+{{else}}
+<p>There are no comments here</p>
+{{/each}}
+  </section>
+  <textarea  id="comment-Area" cols="70" rows="4">
+
+  </textarea>
+  <a onclick="postComment(event)" href="/comment/{{productId}}">
+    <button class="custom-Button">Comment</button>
+  </a>
+  
+</div>
+
+</div>
+  </form>
+
+{{>footer}}
+
