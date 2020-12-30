@@ -123,8 +123,20 @@ const auth = {
             }
         } else {
             data = {
-                isLogged: false
+                isLogged: false,
+                buys: []
             }
+            if (JSON.parse(localStorage.getItem('buys'))) {
+
+                Object.entries(JSON.parse(localStorage.getItem('buys')))
+                    .forEach(el => {
+
+                        if (!data.buys.includes(el[1])) {
+                            data.buys.push(el[1]);
+                        }
+                    })
+            }
+
         }
         return data;
     },

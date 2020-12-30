@@ -7,21 +7,30 @@ body {
     margin: 0px;
 }
 
+a:-webkit-any-link {
+    text-decoration: none;
+    text-decoration-line: none;
+}
+
 .custom-Button {
     color: #FFDF6C;
-    font-size: 20px;
+    font-size: 15px;
     font-family: 'Roboto-solid';
     background-color: #202020;
     border-color: #FFDF6C;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     border-radius: 4px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .custom-Button:hover {
@@ -54,9 +63,14 @@ label {
     margin-top: 50px;
 }
 
+.product-Image {
+    height: 210px;
+    width: 280px;
+}
+
 .page-Title {
     text-align: center;
-    font-size: 50px;
+    font-size: 40px;
     color: #202020;
     margin-bottom: 16px;
 }

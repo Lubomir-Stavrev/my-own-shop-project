@@ -1,6 +1,8 @@
 {{> headerNotHome}}
 <h1 class="form-Title">Shopping Cart</h1>
 <div class="custom-Line"></div>
+<div class="cart-container" onload="window.scrollTo(0, document.body.scrollHeight);">
+
 <div  class="shopping-cart">
     <table class="shopping-cart-table">
 <thead>
@@ -17,8 +19,10 @@
 <tbody  onload="changeColorOnHover(event)">
   {{#each buys}}
   <tr>
-    <td class="text-center"> 
+    <td class="text-center">
+      <a href="/remove/{{productId}}" onclick="removeProductFromCart(event)">
     <button class="button-Remove">X</button>
+      </a> 
       <a  href={{productPath}}>
     <img src={{image}} class="img-thumbnail">
     </a>
@@ -59,5 +63,6 @@
     <button class="pay-Button">Pay</button>
   </a>
   </div>
+</div>
   
 {{> footer}}

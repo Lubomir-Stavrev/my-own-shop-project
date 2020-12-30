@@ -3,7 +3,7 @@
 <div class="custom-Line"></div>
  
 
-<div onload="window.scrollTo(0, document.body.scrollHeight);" class="details-Page">
+<div class="product-container" onload="window.scrollTo(0, document.body.scrollHeight);" class="details-Page">
 
   <div class="details-Container" onclick="navigateHandler(event)">
     <a href="/imagePreview">
@@ -20,20 +20,20 @@
  <br>
  <br>
  <br>
- <h1>Title:{{title}}</h1>
- <h2>Description</h2>
-    <h3 class="product-Description-Details">{{description}}</h3>
-    <h3>Price: {{price}}lv.</h3>
+ <h2>Title:{{title}}</h2>
+ <h3>Description</h3>
+    <h4 class="product-Description-Details">{{description}}</h4>
+    <h4>Price: {{price}}lv.</h4>
 
 
- <h2>{{likes}} likes.</h2>
+ <h3>{{likes}} likes.</h3>
+ <a onclick="addToCart(event)" href="/buy/{{productId}}">
+ <button class="custom-Button">Buy</button>
+ </a>
 {{#if isLogged}}
 
 {{#if admin}}
 {{else}}
-<a onclick="addToCart(event)" href="/buy/{{productId}}">
- <button class="custom-Button">Buy</button>
- </a>
 {{#if isLiked}}
  <a onclick="sendUnlike(event)" href="/unlike/{{productId}}">
  <button class="custom-Button">Unlike</button>
@@ -45,6 +45,16 @@
 {{/if}}
 {{/if}}
  <button onclick="showCommentSection(event)" id="commentsButton" class="custom-Button">{{sectionCondition}} Comments</button>
+ {{else}}
+
+<div>
+ <a onclick="navigateHandler(event)" href="/login">
+ <button class="custom-Button">Like</button>
+ </a> 
+  <button onclick="showCommentSection(event)" id="commentsButton" class="custom-Button">{{sectionCondition}} Comments</button>
+
+</div>
+
  {{/if}}
 
 
@@ -81,9 +91,15 @@
   <textarea  id="comment-Area" cols="70" rows="4">
 
   </textarea>
+  {{#if isLogged}}
   <a onclick="postComment(event)" href="/comment/{{productId}}">
     <button class="custom-Button">Comment</button>
   </a>
+  {{else}}
+  <a onclick="navigateHandler(event)" href="/login">
+    <button class="custom-Button">Comment</button>
+  </a>
+  {{/if}}
   
 </div>
 

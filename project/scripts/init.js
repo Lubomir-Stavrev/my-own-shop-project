@@ -209,6 +209,27 @@ function requestDelete(e) {
     })
 }
 
+function removeProductFromCart(e) {
+    e.preventDefault();
+    let productIdToRemove = e.target.parentNode.href.split('/')[4];
+
+    let localeStorageBuys = [...JSON.parse(localStorage.getItem('buys'))];
+    console.log(localeStorageBuys.length);
+
+    let index = -1;
+    Object.entries(localeStorageBuys).forEach(el => {
+        index++;
+        if (el[1].productId == productIdToRemove) {
+
+            localeStorageBuys.splice(index, 1);
+            console.log(localeStorageBuys.length);
+            localStorage.setItem('buys', JSON.stringify(localeStorageBuys));
+            navigate('/cart')
+        }
+    })
+
+}
+
 
 
 
