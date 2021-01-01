@@ -69,10 +69,18 @@
 }
 
 @media only screen and (max-width: 570px) {
+    .details-container {
+        display: inline-block;
+        text-align: center;
+        align-content: center;
+        margin: 25px;
+        font-size: 8px;
+    }
     .detailsImg {
+        display: block;
         border: 3px solid #202020;
-        max-width: 200px;
-        height: 220px;
+        max-width: 300px;
+        height: 380px;
         /* Black w/opacity/see-through */
     }
     #imageContainer {
@@ -123,8 +131,10 @@
         margin-left: 10px;
     }
     .product-container {
-        display: block;
-        justify-content: center;
-        margin-bottom: 120px;
+        display: inline-block;
+        text-align: center;
+        align-content: center;
+        margin: 25px;
+        font-size: 8px;
     }
 }

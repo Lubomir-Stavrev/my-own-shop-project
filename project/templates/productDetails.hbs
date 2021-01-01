@@ -36,7 +36,8 @@
 {{else}}
 {{#if isLiked}}
  <a onclick="sendUnlike(event)" href="/unlike/{{productId}}">
- <button class="custom-Button">Unlike</button>
+ <button class="custom-Button" style="padding-left: 17.5px;
+        padding-right: 17.5px;">Unlike</button>
  </a>
  {{else}}
  <a onclick="sendLike(event)" href="/like/{{productId}}">
