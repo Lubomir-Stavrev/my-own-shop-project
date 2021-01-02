@@ -1,0 +1,68 @@
+{{> headerNotHome}}
+<h1 class="form-Title">Shopping Cart</h1>
+<div class="custom-Line"></div>
+<div class="cart-container" onload="window.scrollTo(0, document.body.scrollHeight);">
+
+<div  class="shopping-cart">
+    <table class="shopping-cart-table">
+<thead>
+  <tr>
+       <th>Picture</th>
+       <th>Product Name</th>
+       <th>Model</th>
+       <th>Quantity</th>     
+       <th>Price</th>
+       <th>Price Sum</th>
+  </tr>
+  
+</thead>
+<tbody  onload="changeColorOnHover(event)">
+  {{#each buys}}
+  <tr>
+    <td class="text-center">
+      <a href="/remove/{{productId}}" onclick="removeProductFromCart(event)">
+    <button class="button-Remove">X</button>
+      </a> 
+      <a  href={{productPath}}>
+    <img src={{image}} class="img-thumbnail">
+    </a>
+    </td>
+    <td > {{title}}</td>
+    <td >{{productModel}}</td>
+   <td ><div>
+        <input style="padding: 10px;" type="text"  value="1" size="1" >
+        <span >
+        </span></div></td>
+    <td >{{price}}lv.</td>
+    <td >{{sum}}лв.</td>
+  </tr>
+  {{else}}
+  <tr >
+    <td></td>
+    <td></td>
+    <td >
+  <h1 >The cart is Empty !</h1>
+
+    </td>
+<td></td>
+    <td></td>
+    <td></td>
+    </td>
+
+  </tr>
+  {{/each}}
+  
+
+</tbody>
+    </table>
+  <a href="/home" onclick="navigateHandler(event)">
+    <button class="back-Button">Back</button>
+  </a>
+    
+  <a onclick="navigateHandler(event)" href="/paymentPage">
+    <button class="pay-Button">Pay</button>
+  </a>
+  </div>
+</div>
+  
+{{> footer}}

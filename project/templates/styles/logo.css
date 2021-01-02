@@ -1,0 +1,11 @@
+#logo {
+    height: 40px;
+    float: right;
+    border: 2px solid #202020;
+}
+
+#logo:hover {
+    border: 1px solid #FFDF6C;
+    height: 43px;
+    cursor: pointer;
+}
