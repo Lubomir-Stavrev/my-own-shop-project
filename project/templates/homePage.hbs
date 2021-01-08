@@ -1,7 +1,49 @@
 {{> header}}
+
+
 <div>
     <h1 class="page-Title">Products</h1>
     <div class="custom-Line"></div>
+
+
+<div id="sortProductsDiv">
+     
+     <div id="categories-Menu">
+     <h2 class="left">Categories ☰</h2>
+<div class="dropdown-Content">
+  <ul onclick="changeCategoryTitle(event)">
+    <a href="All-Categories">
+       <li>All Categories</li>
+    </a>
+    <a href="Accessories-Women">
+       <li>Accessories Women</li>
+    </a>
+    <a href="Accessories-Men">
+       <li>Accessories Men</li>
+    </a>
+    <a href="Clothes-Women">
+       <li>Clothes Women</li>
+    </a>
+    <a href="Clothes-Men">
+       <li>Clothes Men</li>
+    </a>
+  </ul>
+  </div>
+
+     </div>
+     
+     <div class="search-container">
+    <form action="/action_page.php">
+      <input type="text" placeholder="Search product name..." name="search">
+      <button class="custom-Button">Search</button>
+    </form>
+  </div>
+
+  <div id="category-Name-Container">
+    <h3 id="categories-Name">All Categories</h3>
+  </div>
+</div>
+
     
     <div class="posts" onclick="navigateHandler(event)">
         {{#each products}}

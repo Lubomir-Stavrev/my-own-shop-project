@@ -6,8 +6,6 @@
     -o-border-radius: 3px;
     text-align: center;
     padding-top: 20px;
-    padding-left: 100px;
-    padding-right: 100px;
     display: inline-block;
     margin-bottom: 30px;
 }
@@ -28,25 +26,24 @@
     table-layout: fixed;
 }
 
-.shopping-cart-table td {
-    padding-left: 30px;
-    padding-right: 30px;
-}
-
 .pay-Button {
     border: 3px solid #FFDF6C;
     background-color: #202020;
     color: #FFDF6C;
     font-size: 25px;
-    padding-left: 60px;
-    padding-right: 60px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     border-radius: 4px;
     float: right;
     overflow: hidden;
     margin-top: 10px;
     margin-right: 6%;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
 }
 
 .pay-Button:hover {
@@ -60,15 +57,19 @@
     background-color: #202020;
     color: #FFDF6C;
     font-size: 25px;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     border-radius: 4px;
     float: left;
     overflow: hidden;
     margin-top: 10px;
     margin-left: 6%;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
 }
 
 .back-Button:hover {
@@ -89,8 +90,8 @@
 
 .shopping-cart-table thead tr th {
     border: 1px solid #FFDF6C;
-    padding-left: 60px;
-    padding-right: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
     padding-top: 5px;
     padding-bottom: 5px;
 }
@@ -107,8 +108,8 @@
     border: 6px solid #202020;
     background-color: #202020;
     color: #FFDF6C;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
     padding-top: 5px;
     padding-bottom: 5px;
     cursor: default;
@@ -133,6 +134,10 @@
     margin-top: 10px;
     margin-left: 20px;
     margin-right: 30px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    -ms-border-radius: 100px;
+    -o-border-radius: 100px;
 }
 
 .button-Remove:hover {
@@ -143,4 +148,73 @@
     color: #B2022F;
     border: 2px solid black;
     cursor: pointer;
+}
+
+@media only screen and (max-width: 570px) {
+    .shopping-cart {
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -ms-border-radius: 3px;
+        -o-border-radius: 3px;
+        text-align: center;
+        padding-top: 20px;
+        padding-left: 0px;
+        padding-right: 0px;
+        display: inline-block;
+        margin-bottom: 30px;
+    }
+    .shopping-cart-table thead tr th {
+        border: 1px solid #FFDF6C;
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .shopping-cart-table td {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .shopping-cart {
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -ms-border-radius: 3px;
+        -o-border-radius: 3px;
+        text-align: center;
+        padding-top: 20px;
+        padding-left: 0px;
+        padding-right: 0px;
+        display: inline-block;
+        margin-bottom: 30px;
+    }
+}
+
+@media only screen and (max-width: 713px) {
+    thead tr th {
+        border: 1px solid #FFDF6C;
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .shopping-cart-table {
+        overflow-y: scroll;
+        overflow-x: scroll;
+        max-width: 300px;
+    }
+    .pay-Button {
+        padding-left: 15px;
+        padding-right: 15px;
+        font-size: 17px;
+        padding-bottom: 5px;
+        padding-top: 5px;
+    }
+    .back-Button {
+        padding-left: 15px;
+        padding-right: 15px;
+        font-size: 17px;
+        padding-bottom: 5px;
+        padding-top: 5px;
+    }
 }

@@ -23,6 +23,13 @@ function navigateHandler(e) {
     return;
 }
 
+function getCurrUrlId() {
+
+    let id = window.location.pathname.split('/')[2];
+
+    return id;
+}
+
 function changeColorOnHover(e) {
     e.preventDefault();
     let row = [...document.getElementsByTagName('tr')];
@@ -49,7 +56,10 @@ function registerForm(e) {
         rePassword.value = '';
         return;
     }
-
+    if (password.value.length < 6) {
+        displayErrorMessage('The password must be at least 6 symbols!', 'registerForm');
+        return;
+    }
     auth.register(email.value, password.value)
         .then(res => {
             if (res == 'Error') {
@@ -97,9 +107,12 @@ function createForm(e) {
     let description = document.getElementById('create-Description').value;
     let image = document.getElementById('create-Image').value;
     let price = document.getElementById('create-Price').value;
+    let quantity = document.getElementById('create-Quantity').value;
+    let type = document.getElementById('create-Type').value;
+    let category = document.getElementById('categorySection-Create').value;
 
 
-    if (title == '' || description == '' || image == '' || price == '') {
+    if (title == '' || type == '' || quantity == '' || category == '' || description == '' || image == '' || price == '') {
         displayErrorMessage('You should fill all the fields !', 'createForm');
         return;
     }
@@ -108,10 +121,40 @@ function createForm(e) {
         return
     }
 
-    auth.create(title, description, image, price)
+    auth.create(title, type, category, description, image, price, quantity)
         .then(res => {
 
             navigate('/home');
+        })
+
+
+}
+
+function editForm(e) {
+    e.preventDefault();
+
+    let title = document.getElementById('edit-Title').value;
+    let description = document.getElementById('edit-Description').value;
+    let image = document.getElementById('edit-Image').value;
+    let price = document.getElementById('edit-Price').value;
+    let quantity = document.getElementById('edit-Quantity').value;
+    let type = document.getElementById('edit-Type').value;
+    let category = document.getElementById('categorySection-Edit').value;
+
+
+    if (title == '' || type == '' || quantity == '' || category == '' || description == '' || image == '' || price == '') {
+        displayErrorMessage('You should fill all the fields !', 'editForm');
+        return;
+    }
+    if (title.length > 20) {
+        displayErrorMessage('The title SHOULD be no more than 20 letters!', 'editForm');
+        return
+    }
+    let id = getCurrUrlId();
+    auth.edit(title, type, description, image, price, quantity, category, id)
+        .then(res => {
+
+            navigate(`/details/${id}`);
         })
 
 
@@ -136,6 +179,13 @@ function showCommentSection(e) {
     }
 }
 
+
+function scrollToEnd(e) {
+    e.preventDefault();
+
+    document.getElementById('comment-Section').scrollIntoView({ behavior: 'smooth', block: 'end' });
+}
+
 function postComment(e) {
     e.preventDefault();
 
@@ -147,6 +197,7 @@ function postComment(e) {
     }
     auth.sendComment(postId, comment.value)
         .then(res => {
+
             comment.value = '';
             navigate(`/details/${postId}`, 'block');
 
@@ -227,6 +278,20 @@ function removeProductFromCart(e) {
             navigate('/cart')
         }
     })
+}
+
+function changeCategoryTitle(e) {
+    e.preventDefault();
+
+    let url = new URL(e.target.parentNode.href).pathname.split('/');
+
+    let categoryChange = url[url.length - 1];
+    let categoryTitle = document.getElementById('category-Name-Container');
+
+    categoryChange = categoryChange.replace('-', ' ');
+    categoryTitle.innerHTML = `<h3 id="categories-Name">${categoryChange}</h3>`;
+
+    console.log();
 
 }
 

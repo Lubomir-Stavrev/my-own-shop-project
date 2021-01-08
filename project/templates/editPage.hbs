@@ -1,28 +1,38 @@
 {{> headerNotHome}}
 <h1 class="form-Title">Edit Product Page</h1>
 <div class="custom-Line"></div>
-<form id="createForm" action="action_page.php"  onsubmit="createForm(event)">
+<form  id="editForm"  onsubmit="editForm(event)">
   
   <div class="container">
     <label for="uname"><b>Title</b></label>
     <br>  
-    <input type="text" id="create-Title"  value={{title}} name="uname">
+    <input type="text" id="edit-Title"  value={{title}} name="uname">
 <br>  
+<label for="uname"><b>Type</b></label>
+    <br>  
+    <input type="text" id="edit-Type"  value={{type}} name="uname">
+<br> 
+<br> 
     <label for="psw"><b>Description</b></label>
     <br>  
-    <input type="text" id="create-Description"  value={{description}} name="psw" >
+    <input type="text" id="edit-Description"  value={{description}} name="psw" >
 <br>
 <br>  
     <label for="psw"><b>Image URL</b></label>
     <br>  
-    <input type="url" id="create-Image" value={{image}} name="psw" >
+    <input type="url" id="edit-Image" value={{image}} name="psw" >
 <br>
 <br>  
     <label for="psw"><b>Price</b></label>
     <br>  
-    <input type="number" id="create-Price" value={{price}} name="psw" >
+    <input type="number" id="edit-Price" value={{price}} name="psw" >
 <br>
-
+<br>  
+    <label for="psw"><b>Quantity</b></label>
+    <br>  
+    <input type="number" id="edit-Quantity" value={{quantity}} placeholder="Enter Quantity" name="psw" >
+<br>
+<select  id="categorySection-Edit" class="form-control"><option value={{category}} reqired> ---Please choose category--- </option><option value="All-categories">All Categories</option><option value="Accessories-Men">Accessories Men</option><option value="Accessories-Women">Accessories Women</option><option value="Clothes-Men">Clothes Men</option><option value="Clothes-Women">Clothes Women</option></select>
 <br>
 <br>
   </div>

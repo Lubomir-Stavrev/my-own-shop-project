@@ -20,6 +20,7 @@
  <br>
  <br>
  <br>
+ <div class="textBig">
  <h2>Title:{{title}}</h2>
  <h3>Description</h3>
     <h4 class="product-Description-Details">{{description}}</h4>
@@ -27,6 +28,9 @@
 
 
  <h3>{{likes}} likes.</h3>
+ <h3>{{quantity}} left.</h3>
+
+ </div>
  <a onclick="addToCart(event)" href="/buy/{{productId}}">
  <button class="custom-Button">Buy</button>
  </a>
@@ -45,14 +49,14 @@
  </a>
 {{/if}}
 {{/if}}
- <button onclick="showCommentSection(event)" id="commentsButton" class="custom-Button">{{sectionCondition}} Comments</button>
+ <button onclick="showCommentSection(event)" onclick="document.getElementById('comment-Section').scrollIntoView(false);" id="commentsButton" class="custom-Button">{{sectionCondition}} Comments</button>
  {{else}}
 
 <div>
  <a onclick="navigateHandler(event)" href="/login">
  <button class="custom-Button">Like</button>
  </a> 
-  <button onclick="showCommentSection(event)" id="commentsButton" class="custom-Button">{{sectionCondition}} Comments</button>
+  <button onclick="showCommentSection(event)" onclick="document.getElementById('comment-Section').scrollIntoView(false);" id="commentsButton" class="custom-Button">{{sectionCondition}} Comments</button>
 
 </div>
 
@@ -80,7 +84,7 @@
 <h1 class="page-Title">Comments</h1>
 <div class="custom-Line"></div>
 <div class="comment-Form">
-  <section class="comment-Section">
+  <section onload="scrollToEnd(event)" id="comment-Section">
 {{#each comments}}
 <p>
 {{profile}}:{{comment}}
@@ -89,6 +93,8 @@
 <p>There are no comments here</p>
 {{/each}}
   </section>
+  <div id="comment-Text-Button">
+
   <textarea  id="comment-Area" cols="70" rows="4">
 
   </textarea>
@@ -101,6 +107,7 @@
     <button class="custom-Button">Comment</button>
   </a>
   {{/if}}
+  </div>
   
 </div>
 

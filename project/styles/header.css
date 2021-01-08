@@ -118,16 +118,16 @@ header nav li {
     }
     #header #botton-Nav {
         color: #FFDF6C;
-        font-size: 18px;
+        font-size: 16px;
         font-family: 'Roboto-solid';
         background-color: #202020;
         border-color: #FFDF6C;
         float: right;
         margin-right: 21%;
-        padding-left: 35px;
-        padding-right: 35px;
-        padding-top: 7px;
-        padding-bottom: 7px;
+        padding-left: 33px;
+        padding-right: 33px;
+        padding-top: 6px;
+        padding-bottom: 6px;
         border-radius: 4px;
         -webkit-border-radius: 4px;
         -moz-border-radius: 4px;

@@ -75,30 +75,6 @@ input[type=city-Input]:hover,
     margin-left: -2%;
 }
 
-#input-payment-zone {
-    color: #FFDF6C;
-    font-size: 17px;
-    font-family: 'Roboto-solid';
-    background-color: #202020;
-    border-color: #FFDF6C;
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    -o-border-radius: 4px;
-}
-
-#input-payment-zone:hover {
-    background-color: #FFDF6C;
-    border-color: #202020;
-    color: #202020;
-    cursor: pointer;
-}
-
 .form-Container {
     border: 2px solid #FFDF6C;
     margin-bottom: 80px;

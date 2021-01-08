@@ -27,16 +27,35 @@ const auth = {
                 return 'Error';
             })
     },
-    create(title, description, image, price) {
+    create(title, type, category, description, image, price, quantity) {
 
         return fetch(realTimeDataBase, {
             method: 'POST',
             body: JSON.stringify({
                 title,
+                type,
+                category,
                 description,
                 image,
                 price,
+                quantity,
                 uid: this.getUserData().uid
+            })
+        }).then(res => res.json());
+    },
+
+    edit(title, type, description, image, price, quantity, category, id) {
+
+        return fetch(`https://myownspa-default-rtdb.europe-west1.firebasedatabase.app/${id}/.json`, {
+            method: 'PATCH',
+            body: JSON.stringify({
+                title,
+                type,
+                description,
+                image,
+                price,
+                quantity,
+                category
             })
         }).then(res => res.json());
     },
@@ -59,6 +78,9 @@ const auth = {
                             description: el[1].description,
                             image: el[1].image,
                             price: el[1].price,
+                            category: el[1].category,
+                            type: el[1].type,
+                            quantity: el[1].quantity
                         })
                     })
                 }
@@ -81,6 +103,9 @@ const auth = {
                     title: data.title,
                     description: data.description,
                     price: data.price,
+                    quantity: data.quantity,
+                    type: data.type,
+                    category: data.category,
                     image: data.image,
                     uid: data.uid,
                     productId: id,

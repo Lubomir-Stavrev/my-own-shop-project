@@ -5,10 +5,19 @@
     /* Black w/opacity/see-through */
 }
 
+.product-Description-Details {
+    max-width: 350px
+}
+
 .product-container {
     display: flex;
     justify-content: center;
     margin-bottom: 120px;
+}
+
+.details-Info {
+    text-align: left;
+    margin-left: 6%;
 }
 
 #imageContainer {
@@ -16,10 +25,6 @@
     align-content: center;
     width: 560px;
     height: 640px;
-}
-
-.product-Description-Details {
-    width: 200px;
 }
 
 .details-Page .details-Info .custom-Button:hover {
@@ -50,13 +55,14 @@
     cursor: pointer;
 }
 
-.details-Info {
-    text-align: left;
-    margin-left: 60px;
+#comment-Text-Button button {
+    display: inline;
+    margin-top: 15px;
 }
 
-.comment-Section {
+#comment-Section {
     overflow-y: auto;
+    max-height: 300px;
     min-height: 300px;
     text-align: left;
     border-bottom: 1px solid #202020;
@@ -69,6 +75,9 @@
 }
 
 @media only screen and (max-width: 570px) {
+    #comment-Area {
+        max-width: 300px;
+    }
     .details-container {
         display: inline-block;
         text-align: center;
@@ -79,18 +88,15 @@
     .detailsImg {
         display: block;
         border: 3px solid #202020;
-        max-width: 300px;
-        height: 380px;
-        /* Black w/opacity/see-through */
+        max-width: 265px;
+        height: 360px;
+        margin-right: 35px;
     }
     #imageContainer {
         text-align: center;
         align-content: center;
         width: 460px;
         height: 540px;
-    }
-    .product-Description-Details {
-        width: 100px;
     }
     .details-Page .details-Info .custom-Button:hover {
         padding-left: 25px;
@@ -104,6 +110,8 @@
     .comment-Form {
         border: 3px solid #202020;
         display: inline-block;
+        min-width: 10px;
+        max-width: 350px;
     }
     .details-Page {
         margin-top: 50px;
@@ -117,9 +125,9 @@
     }
     .details-Info {
         text-align: left;
-        margin-left: 60px;
+        margin-left: 6%;
     }
-    .comment-Section {
+    #comment-Section {
         overflow-y: auto;
         min-height: 300px;
         text-align: left;
@@ -136,5 +144,26 @@
         align-content: center;
         margin: 25px;
         font-size: 8px;
+        text-align: -webkit-right;
+    }
+    .textBig {
+        font-size: 15px;
+    }
+    #logo {
+        height: 25px;
+        float: right;
+        border: 2px solid #202020;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .detailsImg {
+        display: block;
+        border: 3px solid #202020;
+        max-width: 210px;
+        height: 290px;
+    }
+    .product-container {
+        margin: 0px;
     }
 }

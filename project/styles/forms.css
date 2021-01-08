@@ -1,4 +1,8 @@
-form {
+#registerForm,
+#paymentForm,
+#loginForm,
+#createForm,
+#editForm {
     border: 3px solid #f1f1f1;
     margin-bottom: 200px;
     text-align: center;
@@ -8,6 +12,34 @@ form {
     text-align: center;
     font-size: 40px;
     color: #202020;
+}
+
+#categorySection-Edit,
+#input-payment-zone,
+#categorySection-Create {
+    color: #FFDF6C;
+    font-size: 17px;
+    font-family: 'Roboto-solid';
+    background-color: #202020;
+    border-color: #FFDF6C;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+
+#input-payment-zone:hover,
+#categorySection-Edit:hover,
+#categorySection-Create:hover {
+    background-color: #FFDF6C;
+    border-color: #202020;
+    color: #202020;
+    cursor: pointer;
 }
 
 input[type=email],
