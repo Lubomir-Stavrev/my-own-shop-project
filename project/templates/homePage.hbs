@@ -33,19 +33,23 @@
      </div>
      
      <div class="search-container">
-    <form action="/action_page.php">
-      <input type="text" placeholder="Search product name..." name="search">
-      <button class="custom-Button">Search</button>
+    <form>
+      <input id="searchInput" type="text" placeholder="Search product name..." name="search">
+      <button onclick="searchAndDisplayProducts(event)" class="custom-Button">Search</button>
     </form>
   </div>
 
   <div id="category-Name-Container">
+    {{#if categoryName}}
+    <h3 id="categories-Name">{{categoryName}}</h3>
+    {{else}}
     <h3 id="categories-Name">All Categories</h3>
+    {{/if}}
   </div>
 </div>
 
     
-    <div class="posts" onclick="navigateHandler(event)">
+    <div id="posts" onclick="navigateHandler(event)">
         {{#each products}}
                 <div onclick="navigateHandler(event)" class="post">
 

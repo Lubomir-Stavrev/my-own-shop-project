@@ -154,6 +154,12 @@
         float: right;
         border: 2px solid #202020;
     }
+    #logo:hover {
+        height: 30px;
+        float: right;
+        border: 1px solid #FFDF6C;
+        cursor: pointer;
+    }
 }
 
 @media only screen and (max-width: 400px) {

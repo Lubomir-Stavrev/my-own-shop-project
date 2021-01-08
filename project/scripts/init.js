@@ -286,16 +286,49 @@ function changeCategoryTitle(e) {
     let url = new URL(e.target.parentNode.href).pathname.split('/');
 
     let categoryChange = url[url.length - 1];
+
     let categoryTitle = document.getElementById('category-Name-Container');
 
     categoryChange = categoryChange.replace('-', ' ');
     categoryTitle.innerHTML = `<h3 id="categories-Name">${categoryChange}</h3>`;
-
-    console.log();
-
+    navigate('/home', categoryChange);
 }
 
+function searchAndDisplayProducts(e) {
+    e.preventDefault();
 
+    let searchInput = document.getElementById('searchInput');
+    let currPageProducts = [...document.getElementById('posts').children];
+
+    currPageProducts.forEach(ch => {
+        let title = ch.querySelector('h1') ? ch.querySelector('h1').innerText : '';
+
+        if (!searchInput.value) {
+            ch.style.display = 'inline-block';
+        } else if (!title.includes(searchInput.value)) {
+            ch.style.display = 'none';
+        } else if (title.includes(searchInput.value)) {
+            ch.style.display = 'inline-block';
+        }
+    })
+    let productsCounter = currPageProducts.length - 1;
+    currPageProducts.forEach(ch => {
+
+        if (productsCounter == 0) {
+            let message = document.createElement('h1');
+            message.innerText = 'There is no such a product!';
+            document.getElementById('posts').appendChild(message);
+        }
+        if (ch.style.display == 'none') {
+            productsCounter--;
+        }
+    })
+    if (productsCounter > 0) {
+        let allPosts = document.getElementById('posts');
+        allPosts.removeChild(allPosts.lastChild);
+    }
+
+}
 
 
 registerPartial();

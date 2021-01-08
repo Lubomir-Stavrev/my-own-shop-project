@@ -62,7 +62,15 @@ const auth = {
 
     async getAllProducts() {
 
-        let obj = [];
+        let allData = [];
+        let allProducts = [];
+
+        let allCategories = {
+            accessoriesWomen: [],
+            accessoriesMen: [],
+            clothesMen: [],
+            clothesWomen: []
+        }
 
         await fetch(realTimeDataBase)
             .then(res => res.json())
@@ -71,7 +79,7 @@ const auth = {
 
                     Object.entries(data).forEach(el => {
 
-                        obj.push({
+                        allData.push({
                             uid: el[1].uid,
                             productId: el[0],
                             title: el[1].title,
@@ -82,11 +90,63 @@ const auth = {
                             type: el[1].type,
                             quantity: el[1].quantity
                         })
+                        if (el[1].category == 'Accessories-Men') {
+                            allCategories.accessoriesMen.push({
+                                uid: el[1].uid,
+                                productId: el[0],
+                                title: el[1].title,
+                                description: el[1].description,
+                                image: el[1].image,
+                                price: el[1].price,
+                                category: el[1].category,
+                                type: el[1].type,
+                                quantity: el[1].quantity
+                            })
+                        } else if (el[1].category == 'Accessories-Women') {
+                            allCategories.accessoriesWomen.push({
+                                uid: el[1].uid,
+                                productId: el[0],
+                                title: el[1].title,
+                                description: el[1].description,
+                                image: el[1].image,
+                                price: el[1].price,
+                                category: el[1].category,
+                                type: el[1].type,
+                                quantity: el[1].quantity
+                            })
+
+                        } else if (el[1].category == 'Clothes-Women') {
+                            allCategories.clothesWomen.push({
+                                uid: el[1].uid,
+                                productId: el[0],
+                                title: el[1].title,
+                                description: el[1].description,
+                                image: el[1].image,
+                                price: el[1].price,
+                                category: el[1].category,
+                                type: el[1].type,
+                                quantity: el[1].quantity
+                            })
+
+                        } else if (el[1].category == 'Clothes-Men') {
+                            allCategories.clothesMen.push({
+                                uid: el[1].uid,
+                                productId: el[0],
+                                title: el[1].title,
+                                description: el[1].description,
+                                image: el[1].image,
+                                price: el[1].price,
+                                category: el[1].category,
+                                type: el[1].type,
+                                quantity: el[1].quantity
+                            })
+                        }
                     })
                 }
             })
-
-        return await obj;
+        allProducts.all = allData
+        allProducts.categories = allCategories;
+        return await allProducts
     },
 
     async getDetails(id) {

@@ -33,7 +33,29 @@ async function router(path, condition) {
             return;
         case 'home':
             let productsData = await auth.getAllProducts();
-            tempData.products = productsData;
+
+            if (condition) {
+                let choosenCategoryName = condition;
+
+                if (choosenCategoryName == 'All Categories') {
+
+                    tempData.products = productsData.all;
+
+                } else if (choosenCategoryName == 'Accessories Women') {
+                    tempData.products = productsData.categories.accessoriesWomen;
+                } else if (choosenCategoryName == 'Accessories Men') {
+                    tempData.products = productsData.categories.accessoriesMen;
+                } else if (choosenCategoryName == 'Clothes Women') {
+                    tempData.products = productsData.categories.clothesWomen;
+                } else if (choosenCategoryName == 'Clothes Men') {
+                    tempData.products = productsData.categories.clothesMen;
+                }
+                tempData.categoryName = choosenCategoryName;
+            } else {
+                tempData.products = productsData.all;
+            }
+
+
             break;
         default:
             break;
@@ -90,5 +112,6 @@ function navigate(direction, condition) {
 
     router(direction.slice(1), condition);
 }
+
 
 navigate('/home');

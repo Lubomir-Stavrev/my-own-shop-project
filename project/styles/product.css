@@ -17,7 +17,7 @@
     cursor: pointer;
 }
 
-.posts {
+#posts {
     position: center;
     text-align: center;
 }
