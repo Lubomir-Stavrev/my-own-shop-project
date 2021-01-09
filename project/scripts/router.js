@@ -15,17 +15,16 @@ const routs = {
     'imagePreview': '../templates/imagesPreview.hbs',
     'cart': '../templates/shoppingCart.hbs',
     'paymentPage': '../templates/paymentPage.hbs',
+    'profile': '../templates/profile.hbs',
 
 }
 
 
 
 async function router(path, condition) {
-    let tempData = auth.getUserData();
+    let tempData = await auth.getUserData();
     globalThis.tempData = tempData;
-    if (profilesWithAdminRight.includes(auth.getUserData().email)) {
-        tempData.admin = true;
-    }
+
     switch (path) {
         case 'logout':
             auth.logout();
@@ -78,6 +77,8 @@ async function router(path, condition) {
 
         Object.assign(tempData, data);
         path = 'edit';
+    } else if (path.includes('profile')) {
+        tempData.users = await auth.getAllRegisteredUsers();
     }
 
     getTemplate(path)

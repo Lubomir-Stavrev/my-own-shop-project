@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="./styles/shoppingCart.css">
     <link rel="stylesheet" href="./styles/orderPayment.css">
     <link rel="stylesheet" href="./styles/home.css">
+    <link rel="stylesheet" href="./styles/profile.css">
 
     <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
@@ -66,8 +67,8 @@
                         <li>Create</li>
                     </a>
                     {{/if}}
-                    <a class="a-Auth" style="cursor: default;">
-                        <li>{{email}}</li>
+                    <a class="a-Auth" href="/profile" style="cursor: pointer;">
+                        <li>profile</li>
                     </a>
                     {{else}}
                     <a class="a-Auth" href="/login">
@@ -114,8 +115,8 @@
                     <a class="a-Auth" href="/logout">
                         <li>Logout</li>
                     </a>
-                    <a class="a-Auth" style="cursor: default;">
-                        <li>{{email}}</li>
+                    <a class="a-Auth" href="/profile" style="cursor: pointer;">
+                        <li>profile</li>
                     </a>
                     {{#if admin}}
                     <a class="a-Auth" href="/create">

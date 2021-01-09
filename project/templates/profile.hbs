@@ -1,0 +1,58 @@
+{{> header}}
+<h1 class="page-Title">Profile</h1>
+    <div class="custom-Line"></div>
+
+<div id="profileContainer">
+<div id="profileInfo">
+    <div id="profileImage">
+        <img src="../images/profile-picture.png" >
+    </div>
+    {{#if admin}}
+    <h2>Admin</h2>
+    {{else}}
+    <h2>User</h2>
+    {{/if}}
+<h3>Email: {{email}}</h3>
+</div>
+</div>
+
+{{#if isAdmin}}
+<div id="profiles-Table-Container">
+ <table class="profiles-Table">
+  <thead>
+    <tr> <th>Profile Name</th> <th>Profile Rights</th> <th>Make/Remove admin</th> </tr>
+  </thead>
+
+  <tbody>
+{{#each users}}
+   <tr>
+    <td class="text-center">{{userEmail}}</td>
+    {{#if admin}}
+    <td>Admin</td>
+       <td>
+        <a href="remove/{{userEmail}}/{{userId}}" onclick="removeAdmin(event)">
+           <button class="button-Make-Admin">Remove admin rights</button>
+        </a> 
+      </td>
+   </tr>
+   {{else}}
+   <td>User</td>
+       <td>
+        <a href="give/{{userEmail}}/{{userId}}" onclick="giveAdmin(event)">
+           <button class="button-Make-Admin">Give admin rights</button>
+        </a> 
+      </td>
+   </tr>
+   {{/if}}
+   {{else}}
+   <td>
+      <h3>There are no registrations yet</h3>
+   </td>
+   {{/each}}
+  </tbody>
+
+ </table>
+</div>
+{{/if}}
+
+{{> footer}}

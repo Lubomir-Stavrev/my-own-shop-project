@@ -1,10 +1,10 @@
 const userModel = firebase.auth();
 
 const addKeyForAuth = 'AIzaSyA-131Sc54-7JA2T9hhYmBvIdvrE40u2is';
-const realTimeDataBase = 'https://myownspa-default-rtdb.europe-west1.firebasedatabase.app/.json';
+const productsURL = 'https://myownspa-default-rtdb.europe-west1.firebasedatabase.app/products.json';
+const usersURL = 'https://myownspa-default-rtdb.europe-west1.firebasedatabase.app/users.json';
 
-//createUserWithEmailAndPassword
-//signInWithEmailAndPassword
+
 const auth = {
 
     login(email, password) {
@@ -17,11 +17,17 @@ const auth = {
                 return 'Error';
             })
     },
-    register(email, password) {
+    async register(email, password) {
 
-        return userModel.createUserWithEmailAndPassword(email, password)
-            .then(function(data) {
-
+        return await userModel.createUserWithEmailAndPassword(email, password)
+            .then(async function(data) {
+                await fetch(usersURL, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        admin: false,
+                        email,
+                    })
+                })
             }).catch(err => {
 
                 return 'Error';
@@ -29,7 +35,7 @@ const auth = {
     },
     create(title, type, category, description, image, price, quantity) {
 
-        return fetch(realTimeDataBase, {
+        return fetch(productsURL, {
             method: 'POST',
             body: JSON.stringify({
                 title,
@@ -46,7 +52,7 @@ const auth = {
 
     edit(title, type, description, image, price, quantity, category, id) {
 
-        return fetch(`https://myownspa-default-rtdb.europe-west1.firebasedatabase.app/${id}/.json`, {
+        return fetch(`https://myownspa-default-rtdb.europe-west1.firebasedatabase.app/products/${id}/.json`, {
             method: 'PATCH',
             body: JSON.stringify({
                 title,
@@ -72,7 +78,7 @@ const auth = {
             clothesWomen: []
         }
 
-        await fetch(realTimeDataBase)
+        await fetch(productsURL)
             .then(res => res.json())
             .then(data => {
                 if (data) {
@@ -151,7 +157,7 @@ const auth = {
 
     async getDetails(id) {
 
-        let data = await fetch(`https://myownspa-default-rtdb.europe-west1.firebasedatabase.app/${id}.json`)
+        let data = await fetch(`https://myownspa-default-rtdb.europe-west1.firebasedatabase.app/products/${id}.json`)
             .then(res => res.json())
             .then(data => {
 
@@ -176,7 +182,7 @@ const auth = {
         return await data;
     },
 
-    getUserData() {
+    async getUserData() {
 
         let data;
 
@@ -186,7 +192,7 @@ const auth = {
                     uid: JSON.parse(localStorage.getItem('auth')).uid,
                     email: JSON.parse(localStorage.getItem('auth')).email,
                     isLogged: true,
-                    buys: []
+                    buys: [],
                 }
                 if (JSON.parse(localStorage.getItem('buys'))) {
 
@@ -223,7 +229,27 @@ const auth = {
             }
 
         }
-        return data;
+        if (data.email) {
+
+            await fetch(`https://myownspa-default-rtdb.europe-west1.firebasedatabase.app/users.json`)
+                .then(res => res.json())
+                .then(userData => {
+                    if (userData) {
+
+                        Object.entries(userData)
+                            .forEach(el => {
+                                if (el[1].email == data.email) {
+                                    if (el[1].admin == true) {
+                                        data.isAdmin = true;
+                                    } else {
+                                        data.isAdmin = false;
+                                    }
+                                }
+                            })
+                    }
+                })
+        }
+        return await data;
     },
 
     logout() {
@@ -233,7 +259,7 @@ const auth = {
 
     sendComment(idPost, comment) {
 
-        return fetch(`https://myownspa-default-rtdb.europe-west1.firebasedatabase.app/${idPost}/commentSection.json`, {
+        return fetch(`https://myownspa-default-rtdb.europe-west1.firebasedatabase.app/products/${idPost}/commentSection.json`, {
             method: 'POST',
             body: JSON.stringify({
 
@@ -246,7 +272,7 @@ const auth = {
     },
     async getAllComments(idPost) {
         let comments = [];
-        await fetch(`https://myownspa-default-rtdb.europe-west1.firebasedatabase.app/${idPost}/commentSection.json`)
+        await fetch(`https://myownspa-default-rtdb.europe-west1.firebasedatabase.app/products/${idPost}/commentSection.json`)
             .then(res => res.json())
             .then(data => {
                 if (data) {
@@ -262,7 +288,7 @@ const auth = {
     },
 
     postLike(postId) {
-        return fetch(`https://myownspa-default-rtdb.europe-west1.firebasedatabase.app/${postId}/likeSection.json`, {
+        return fetch(`https://myownspa-default-rtdb.europe-west1.firebasedatabase.app/products/${postId}/likeSection.json`, {
             method: 'POST',
             body: JSON.stringify({
                 profile: this.getUserData().email
@@ -276,7 +302,7 @@ const auth = {
             likes: 0,
             isLiked: false
         }
-        await fetch(`https://myownspa-default-rtdb.europe-west1.firebasedatabase.app/${postId}/likeSection.json`)
+        await fetch(`https://myownspa-default-rtdb.europe-west1.firebasedatabase.app/products/${postId}/likeSection.json`)
             .then(res => res.json())
             .then(data => {
                 if (data) {
@@ -294,7 +320,7 @@ const auth = {
 
     postUnlike(postId) {
 
-        return fetch(`https://myownspa-default-rtdb.europe-west1.firebasedatabase.app/${postId}/likeSection.json`, {
+        return fetch(`https://myownspa-default-rtdb.europe-west1.firebasedatabase.app/products/${postId}/likeSection.json`, {
             method: 'DELETE',
             body: JSON.stringify({
                 profile: this.getUserData().email
@@ -303,9 +329,49 @@ const auth = {
     },
 
     deleteProduct(id) {
-        return fetch(`https://myownspa-default-rtdb.europe-west1.firebasedatabase.app/${id}/.json`, {
+        return fetch(`https://myownspa-default-rtdb.europe-west1.firebasedatabase.app/products/${id}/.json`, {
             method: 'DELETE',
         }).then(res => res.json());
+    },
+
+    async getAllRegisteredUsers() {
+
+        let users = [];
+
+        await fetch(usersURL)
+            .then(res => res.json())
+            .then(data => {
+                if (data) {
+                    Object.entries(data).forEach(el => {
+                        users.push({
+                            userEmail: el[1].email,
+                            admin: el[1].admin,
+                            userId: el[0],
+                        })
+                    })
+
+                }
+            })
+
+        return await users;
+    },
+    giveAdminRights(email, id) {
+        return fetch(`https://myownspa-default-rtdb.europe-west1.firebasedatabase.app/users/${id}/.json`, {
+            method: 'PATCH',
+            body: JSON.stringify({
+                email,
+                admin: true
+            })
+        })
+    },
+    removeAdminRights(email, id) {
+        return fetch(`https://myownspa-default-rtdb.europe-west1.firebasedatabase.app/users/${id}/.json`, {
+            method: 'PATCH',
+            body: JSON.stringify({
+                email,
+                admin: false
+            })
+        })
     }
 
 }

@@ -1,0 +1,101 @@
+#profileContainer {
+    text-align: center;
+    justify-content: center;
+}
+
+#profileInfo {
+    border: 3px solid #202020;
+    padding: 0px;
+    max-width: 300px;
+    min-width: 200px;
+    margin: 0 auto;
+}
+
+#profileImage img {
+    height: 300px;
+    min-width: 200px;
+    border-bottom: 3px solid #202020;
+}
+
+#profiles-Table-Container {
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.profiles-Table {
+    margin: 0 auto;
+    text-align: center;
+    border: 3px solid #202020;
+    width: 700px;
+    max-width: 900px;
+    min-width: 300px;
+}
+
+.profiles-Table thead tr th {
+    background-color: #FFDF6C;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 20px;
+}
+
+.profiles-Table tbody tr td {
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 18px;
+}
+
+.profiles-Table tbody tr:hover {
+    border: 6px solid #202020;
+    background-color: #202020;
+    color: #FFDF6C;
+    cursor: default;
+}
+
+.button-Make-Admin {
+    border: 1px solid #202020;
+    color: #202020;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #FFDF6C;
+}
+
+.button-Make-Admin:hover {
+    border: 1px solid #FFDF6C;
+    color: #FFDF6C;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #202020;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 570px) {
+    .profiles-Table {
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -ms-border-radius: 3px;
+        -o-border-radius: 3px;
+        text-align: center;
+        padding-top: 20px;
+        padding-left: 0px;
+        padding-right: 0px;
+        display: inline-block;
+        margin-bottom: 30px;
+    }
+}
+
+@media only screen and (max-width: 713px) {
+    thead tr th {
+        border: 1px solid #FFDF6C;
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-top: 0px;
+        padding-bottom: 5px;
+    }
+    .profiles-Table {
+        overflow-y: scroll;
+        overflow-x: scroll;
+        max-width: 300px;
+    }
+}

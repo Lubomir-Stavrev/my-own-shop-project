@@ -36,7 +36,7 @@
  </a>
 {{#if isLogged}}
 
-{{#if admin}}
+{{#if isAdmin}}
 {{else}}
 {{#if isLiked}}
  <a onclick="sendUnlike(event)" href="/unlike/{{productId}}">
@@ -63,7 +63,7 @@
  {{/if}}
 
 
-{{#if admin}}
+{{#if isAdmin}}
 <div >
  <a onclick="navigateHandler(event)" href="/edit/{{productId}}">
  <button class="custom-Button">Edit</button>

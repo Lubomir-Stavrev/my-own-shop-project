@@ -330,5 +330,27 @@ function searchAndDisplayProducts(e) {
 
 }
 
+function giveAdmin(e) {
+
+    e.preventDefault();
+    let email = e.target.parentNode.href.split('/')[4];
+    let id = e.target.parentNode.href.split('/')[5];
+
+    auth.giveAdminRights(email, id).then(res => {
+        navigate('/profile');
+    })
+}
+
+function removeAdmin(e) {
+
+    e.preventDefault();
+    let email = e.target.parentNode.href.split('/')[4];
+    let id = e.target.parentNode.href.split('/')[5];
+
+    auth.removeAdminRights(email, id).then(res => {
+        navigate('/profile');
+    })
+}
+
 
 registerPartial();
