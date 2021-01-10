@@ -297,7 +297,7 @@ function changeCategoryTitle(e) {
 function searchAndDisplayProducts(e) {
     e.preventDefault();
 
-    let searchInput = document.getElementById('searchInput');
+    let searchInput = document.getElementById('searchInput').toLowerCase();
     let currPageProducts = [...document.getElementById('posts').children];
 
     currPageProducts.forEach(ch => {

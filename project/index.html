@@ -62,7 +62,7 @@
                     <a class="a-Auth" href="/logout">
                         <li>Logout</li>
                     </a>
-                    {{#if admin}}
+                    {{#if isAdmin}}
                     <a class="a-Auth" href="/create">
                         <li>Create</li>
                     </a>
@@ -118,7 +118,7 @@
                     <a class="a-Auth" href="/profile" style="cursor: pointer;">
                         <li>profile</li>
                     </a>
-                    {{#if admin}}
+                    {{#if isAdmin}}
                     <a class="a-Auth" href="/create">
                         <li>Create</li>
                     </a>

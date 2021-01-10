@@ -1,61 +1,17 @@
-input[type=name] {
-    width: 25%;
-    padding: 12px 20px;
-    margin-left: 1%;
-    margin-right: 1%;
-    align-content: center;
-    text-align: center;
-    display: inline-block;
-    border: 1px solid #202020;
-    box-sizing: border-box;
-}
-
+input[type=city-Input],
+input[type=email-Input],
+input[type=name],
+input[type=phone],
 input[type=pk-Input] {
     width: 25%;
     padding: 12px 20px;
-    margin-left: 1%;
-    margin-right: -4.5%;
     align-content: center;
     text-align: center;
     display: inline-block;
     border: 1px solid #202020;
     box-sizing: border-box;
-}
-
-input[type=phone] {
-    width: 25%;
-    padding: 12px 20px;
-    margin-left: 1%;
-    margin-right: -4.5%;
-    align-content: center;
-    text-align: center;
-    display: inline-block;
-    border: 1px solid #202020;
-    box-sizing: border-box;
-}
-
-input[type=email-Input] {
-    width: 25%;
-    padding: 12px 20px;
-    margin-left: 1%;
-    margin-right: 0%;
-    align-content: center;
-    text-align: center;
-    display: inline-block;
-    border: 1px solid #202020;
-    box-sizing: border-box;
-}
-
-input[type=city-Input] {
-    width: 25%;
-    padding: 12px 20px;
-    margin-left: 1%;
-    margin-right: 5.5%;
-    align-content: center;
-    text-align: center;
-    display: inline-block;
-    border: 1px solid #202020;
-    box-sizing: border-box;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 input[type=city-Input]:hover,
@@ -67,12 +23,8 @@ input[type=city-Input]:hover,
     border: 3px solid #FFDF6C;
 }
 
-.pk-Input {
-    margin-left: 7%;
-}
-
-.city-Input {
-    margin-left: -2%;
+.label-Input-Container {
+    margin-bottom: 2%;
 }
 
 .form-Container {
@@ -80,28 +32,8 @@ input[type=city-Input]:hover,
     margin-bottom: 80px;
     padding-top: 80px;
     padding-bottom: 80px;
-    margin-left: 15%;
-    margin-right: 15%;
 }
 
 .form-Container:hover {
     border: 3px solid #202020;
-}
-
-.phone-Input {
-    margin-left: 1%;
-}
-
-.name {
-    /* padding: 15% 15%; */
-    font-size: 20px;
-}
-
-.email-Input {
-    font-size: 20px;
-    margin-left: -2%;
-}
-
-.phone-Input {
-    font-size: 20px;
 }

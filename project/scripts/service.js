@@ -162,8 +162,10 @@ const auth = {
             .then(data => {
 
                 let isCreator = false;
-                if (data.uid == this.getUserData().uid) {
-                    isCreator = true;
+                if (JSON.parse(localStorage.getItem('auth'))) {
+                    if (data.uid == JSON.parse(localStorage.getItem('auth')).uid) {
+                        isCreator = true;
+                    }
                 }
                 return {
                     title: data.title,
@@ -249,7 +251,7 @@ const auth = {
                     }
                 })
         }
-        return await data;
+        return data;
     },
 
     logout() {
@@ -264,7 +266,7 @@ const auth = {
             body: JSON.stringify({
 
                 comment,
-                profile: this.getUserData().email
+                profile: JSON.parse(localStorage.getItem('auth')).email
 
             })
         }).then(res => res.json())
@@ -291,7 +293,7 @@ const auth = {
         return fetch(`https://myownspa-default-rtdb.europe-west1.firebasedatabase.app/products/${postId}/likeSection.json`, {
             method: 'POST',
             body: JSON.stringify({
-                profile: this.getUserData().email
+                profile: JSON.parse(localStorage.getItem('auth')).email
             })
         }).then(res => res.json());
     },
@@ -308,7 +310,12 @@ const auth = {
                 if (data) {
                     Object.entries(data).forEach(el => {
                         likesCounterInfo.likes = likesCounterInfo.likes + 1;
-                        if (this.getUserData().email == el[1].profile) {
+                        let currEmail = '';
+                        if (JSON.parse(localStorage.getItem('auth'))) {
+                            currEmail = JSON.parse(localStorage.getItem('auth')).email;
+
+                        }
+                        if (currEmail == el[1].profile) {
                             likesCounterInfo.isLiked = true;
                         }
                     })
@@ -323,7 +330,7 @@ const auth = {
         return fetch(`https://myownspa-default-rtdb.europe-west1.firebasedatabase.app/products/${postId}/likeSection.json`, {
             method: 'DELETE',
             body: JSON.stringify({
-                profile: this.getUserData().email
+                profile: JSON.parse(localStorage.getItem('auth')).email
             })
         }).then(res => res.json())
     },
@@ -337,17 +344,22 @@ const auth = {
     async getAllRegisteredUsers() {
 
         let users = [];
+        let currEmail = JSON.parse(localStorage.getItem('auth')).email;
 
         await fetch(usersURL)
             .then(res => res.json())
             .then(data => {
                 if (data) {
                     Object.entries(data).forEach(el => {
-                        users.push({
-                            userEmail: el[1].email,
-                            admin: el[1].admin,
-                            userId: el[0],
-                        })
+
+                        if (el[1].email != currEmail) {
+
+                            users.push({
+                                userEmail: el[1].email,
+                                admin: el[1].admin,
+                                userId: el[0],
+                            })
+                        }
                     })
 
                 }

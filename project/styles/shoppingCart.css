@@ -44,12 +44,14 @@
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
+    cursor: pointer;
 }
 
 .pay-Button:hover {
     border: 3px solid #202020;
     background-color: #FFDF6C;
     color: #202020;
+    cursor: pointer;
 }
 
 .back-Button {
@@ -70,12 +72,14 @@
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
+    cursor: pointer;
 }
 
 .back-Button:hover {
     border: 3px solid #202020;
     background-color: #FFDF6C;
     color: #202020;
+    cursor: pointer;
 }
 
 .shopping-cart-table thead {
@@ -138,6 +142,7 @@
     -moz-border-radius: 100px;
     -ms-border-radius: 100px;
     -o-border-radius: 100px;
+    cursor: pointer;
 }
 
 .button-Remove:hover {

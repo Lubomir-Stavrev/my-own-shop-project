@@ -3,65 +3,72 @@
 <div class="custom-Line"></div>
 
 <h3 class="form-Title">Personal Data</h3>
-<form id="paymentForm"   onsubmit="payForm(event)">
+<div>
+
+<form id="paymentForm" onsubmit="payForm(event)">
   
   <div class="container">
     <div class="form-Container">
-
+<div class="label-Input-Container">
     <label class="name" for="uname"><b>Username</b></label>
     
     <input type="name" id="order-Username" placeholder="Enter Username" name="uname" required>
-&nbsp
-    <label class="name" for="psw"><b>Surname</b></label>
-    
-    <input type="name" id="order-Surname" placeholder="Enter Surname" name="psw" required>
-    <br>
-    <br>
-    <br>
+
     <label class="email-Input"  for="uname"><b>Email</b></label>
     
     <input type="email-Input" id="order-Username" placeholder="Enter Email" name="uname" required>
-&nbsp
-&nbsp
-&nbsp
-&nbsp
+</div>
+
+<div class="label-Input-Container">
+    <label class="name" for="psw"><b>Surname</b></label>
+    
+    <input type="name" id="order-Surname" placeholder="Enter Surname" name="psw" required>
+    
     <label class="phone-Input" for="psw"><b>Phone</b></label>
     
     <input type="phone" id="order-Surname" placeholder="Enter Phone" name="psw" required>
+
+</div>
+
     </div>
 
 
 <h3 class="form-Title">Your Address</h3>
 <div class="form-Container">
 
+<div class="label-Input-Container">
  <label class="name" for="uname"><b>Address</b></label>
     
     <input type="name" id="order-Address" placeholder="Enter Address" name="uname" required>
-&nbsp
+
     <label class="name" for="psw"><b>Address addition</b></label>
     
     <input type="name" id="order-Address-Addition" placeholder="Enter address addition" name="psw" required>
-    <br>
-    <br>
-    <br>
+</div>
+
+    <div class="label-Input-Container">
+
     <label class="city-Input"  for="uname"><b>City</b></label>
     
     <input type="city-Input" id="order-City" placeholder="Enter City" name="uname" required>
 
 
-
     <label class="pk-Input" for="psw"><b>PK</b></label>
     
     <input type="pk-Input" id="order-PK" placeholder="Enter PK" name="psw" required>
-    <br>
-    <br>
-    <br>
-<select name="zone_id" id="input-payment-zone" class="form-control"><option value=""> --- Моля изберете --- </option><option value="479">Благоевград</option><option value="480">Бургас</option><option value="501">Варна</option><option value="502">Велико Търново</option><option value="503">Видин</option><option value="504">Враца</option><option value="482">Габрово</option><option value="481">Добрич</option><option value="484">Кърджали</option><option value="485">Кюстендил</option><option value="486">Ловеч</option><option value="487">Монтана</option><option value="488">Пазарджик</option><option value="489">Перник</option><option value="490">Плевен</option><option value="491">Пловдив</option><option value="492">Разград</option><option value="3968">Русе</option><option value="494">Силистра</option><option value="495">Сливен</option><option value="496">Смолян</option><option value="498">София - град</option><option value="497">София - област</option><option value="499">Стара Загора</option><option value="500">Търговище</option><option value="483">Хасково</option><option value="493">Шумен</option><option value="505">Ямбол</option></select>
+
+    </div>
+    
+    
+    
+    
+    
+<select name="zone_id" id="input-payment-zone" class="form-control"><option value=""> --- Please Choose --- </option><option value = "479"> Blagoevgrad </option> <option value = "480"> Burgas </option> <option value = "501"> Varna </option> <option value = "502"> Veliko Tarnovo </option> <option value = "503"> Vidin </option> <option value = "504"> Vratsa </option> <option value = "482"> Gabrovo </option> <option value = "481"> Dobrich </option> <option value = "484"> Kardzhali </option> <option value = "485"> Kyustendil </option> <option value = "486"> Lovech </option> <option value = "487 "> Montana </option> <option value =" 488 "> Pazardzhik </option> <option value =" 489 "> Pernik </option> <option value =" 490 "> Pleven </option> <option value = "491"> Plovdiv </option> <option value = "492"> Razgrad </option> <option value = "3968"> Ruse </option> <option value = "494"> Silistra </option> <option value = "495"> Sliven </option> <option value = "496"> Smolyan </option> <option value = "498"> Sofia - city </option> <option value = "497"> Sofia - region </option> <option value = "499"> Stara Zagora </ option> <option value = "500"> Targovishte </option> <option value = "483"> Haskovo </option> <option value = "493"> Shumen </option> <option va lue = "505"> Yambol </option> </select>
 </div>
-<br>
-<br>
-<br>
-<br>
+
+
+
+
 
   </div>
   <div class="container" style="background-color:#f1f1f1">
@@ -69,4 +76,5 @@
   </div>
   
 </form>
+</div>
 {{>footer}}
