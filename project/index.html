@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="./styles/product.css">
     <link rel="stylesheet" href="./styles/details.css">
     <link rel="stylesheet" href="./styles/shoppingCart.css">
-    <link rel="stylesheet" href="./styles/orderPayment.css">
     <link rel="stylesheet" href="./styles/home.css">
     <link rel="stylesheet" href="./styles/profile.css">
 
@@ -57,7 +56,7 @@
             <img src="../images/Capture.PNG" id="logo">
             <nav onclick="navigateHandler(event)">
 
-                <ul id="a-Auth">
+                <ul class="nav-Right">
                     {{#if isLogged}}
                     <a class="a-Auth" href="/logout">
                         <li>Logout</li>
@@ -80,7 +79,7 @@
                     {{/if}}
                 </ul>
             </nav>
-            <nav>
+            <nav class="menu-Left">
                 <ul onclick="navigateHandler(event)">
                     <a class="a-Header" href="/home">
                         <li>Home</li>
@@ -110,7 +109,7 @@
             <img src="../images/Capture.PNG" id="logo">
             <nav onclick="navigateHandler(event)">
 
-                <ul id="a-Auth">
+                <ul class="nav-Right">
                     {{#if isLogged}}
                     <a class="a-Auth" href="/logout">
                         <li>Logout</li>
@@ -132,7 +131,7 @@
                     {{/if}}
                 </ul>
             </nav>
-            <nav>
+            <nav class="menu-Left">
                 <ul onclick="navigateHandler(event)">
                     <a class="a-Header" href="/home">
                         <li>Home</li>

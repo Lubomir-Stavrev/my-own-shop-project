@@ -2,79 +2,57 @@
 <h1 class="form-Title">Payment</h1>
 <div class="custom-Line"></div>
 
-<h3 class="form-Title">Personal Data</h3>
-<div>
+<h3 class="under-Title">Personal Data</h3>
+
 
 <form id="paymentForm" onsubmit="payForm(event)">
-  
-  <div class="container">
-    <div class="form-Container">
-<div class="label-Input-Container">
+
+<div class="container">
     <label class="name" for="uname"><b>Username</b></label>
-    
+    <br>
     <input type="name" id="order-Username" placeholder="Enter Username" name="uname" required>
-
+<br>
     <label class="email-Input"  for="uname"><b>Email</b></label>
-    
+    <br>
     <input type="email-Input" id="order-Username" placeholder="Enter Email" name="uname" required>
-</div>
-
-<div class="label-Input-Container">
+<br>
     <label class="name" for="psw"><b>Surname</b></label>
-    
+    <br>
     <input type="name" id="order-Surname" placeholder="Enter Surname" name="psw" required>
-    
+    <br>
     <label class="phone-Input" for="psw"><b>Phone</b></label>
-    
+    <br>
     <input type="phone" id="order-Surname" placeholder="Enter Phone" name="psw" required>
+<br>
+<h3 class="under-Title">Your Address</h3>
 
-</div>
-
-    </div>
-
-
-<h3 class="form-Title">Your Address</h3>
-<div class="form-Container">
-
-<div class="label-Input-Container">
  <label class="name" for="uname"><b>Address</b></label>
-    
+    <br>
     <input type="name" id="order-Address" placeholder="Enter Address" name="uname" required>
-
+<br>
     <label class="name" for="psw"><b>Address addition</b></label>
-    
+    <br>
     <input type="name" id="order-Address-Addition" placeholder="Enter address addition" name="psw" required>
-</div>
 
-    <div class="label-Input-Container">
-
+<br>
     <label class="city-Input"  for="uname"><b>City</b></label>
-    
+    <br>
     <input type="city-Input" id="order-City" placeholder="Enter City" name="uname" required>
 
-
+<br>
     <label class="pk-Input" for="psw"><b>PK</b></label>
-    
+    <br>
     <input type="pk-Input" id="order-PK" placeholder="Enter PK" name="psw" required>
-
-    </div>
-    
-    
-    
-    
+<br>
     
 <select name="zone_id" id="input-payment-zone" class="form-control"><option value=""> --- Please Choose --- </option><option value = "479"> Blagoevgrad </option> <option value = "480"> Burgas </option> <option value = "501"> Varna </option> <option value = "502"> Veliko Tarnovo </option> <option value = "503"> Vidin </option> <option value = "504"> Vratsa </option> <option value = "482"> Gabrovo </option> <option value = "481"> Dobrich </option> <option value = "484"> Kardzhali </option> <option value = "485"> Kyustendil </option> <option value = "486"> Lovech </option> <option value = "487 "> Montana </option> <option value =" 488 "> Pazardzhik </option> <option value =" 489 "> Pernik </option> <option value =" 490 "> Pleven </option> <option value = "491"> Plovdiv </option> <option value = "492"> Razgrad </option> <option value = "3968"> Ruse </option> <option value = "494"> Silistra </option> <option value = "495"> Sliven </option> <option value = "496"> Smolyan </option> <option value = "498"> Sofia - city </option> <option value = "497"> Sofia - region </option> <option value = "499"> Stara Zagora </ option> <option value = "500"> Targovishte </option> <option value = "483"> Haskovo </option> <option value = "493"> Shumen </option> <option va lue = "505"> Yambol </option> </select>
-</div>
+<br>
 
-
-
-
-
-  </div>
   <div class="container" style="background-color:#f1f1f1">
     <button type="submit" id="button-Login" class="cancelbtn">Submit request</button>
   </div>
-  
-</form>
+
 </div>
+</form>
+
 {{>footer}}

@@ -2,7 +2,8 @@
 #paymentForm,
 #loginForm,
 #createForm,
-#editForm {
+#editForm,
+#paymentForm {
     border: 3px solid #f1f1f1;
     margin-bottom: 200px;
     text-align: center;
@@ -12,6 +13,13 @@
     text-align: center;
     font-size: 40px;
     color: #202020;
+}
+
+.under-Title {
+    text-align: center;
+    font-size: 30px;
+    color: #202020;
+    margin-bottom: 50px;
 }
 
 #categorySection-Edit,
@@ -31,6 +39,8 @@
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
+    margin-bottom: 30px;
+    margin-top: 20px;
 }
 
 #input-payment-zone:hover,
@@ -46,7 +56,14 @@ input[type=email],
 input[type=password],
 input[type=text],
 input[type=number],
-input[type=url] {
+input[type=url],
+input[type=city-Input],
+input[type=email-Input],
+input[type=name],
+input[type=phone],
+input[type=pk-Input] {
+    min-width: 20%;
+    max-width: 60%;
     width: 50%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -54,9 +71,6 @@ input[type=url] {
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
-
-
-/* Set a style for all buttons */
 
 .underFormInfo {
     color: #202020;
@@ -66,19 +80,18 @@ input[type=url] {
 }
 
 #button-Login {
-    padding: 14px 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 7px;
+    padding-bottom: 7px;
     margin: 8px 0;
     cursor: pointer;
-    width: 30%;
     color: #FFDF6C;
     font-size: 20px;
     font-family: 'Roboto-solid';
     background-color: #202020;
     border-color: #FFDF6C;
 }
-
-
-/* Add a hover effect for buttons */
 
 #button-Login:hover {
     background-color: #FFDF6C;
@@ -95,4 +108,51 @@ input[type=url] {
 span.psw {
     float: right;
     padding-top: 16px;
+}
+
+input[type=city-Input]:hover,
+[type=email-Input]:hover,
+[type=name]:hover,
+[type=phone]:hover,
+[type=pk-Input]:hover {
+    border: 3px solid #FFDF6C;
+}
+
+@media only screen and (max-width: 1000px) {
+    label {
+        font-size: 15px;
+    }
+    .form-Title {
+        text-align: center;
+        font-size: 30px;
+        color: #202020;
+    }
+    .under-Title {
+        text-align: center;
+        font-size: 20px;
+        color: #202020;
+        margin-bottom: 50px;
+    }
+    input[type=email],
+    input[type=password],
+    input[type=text],
+    input[type=number],
+    input[type=url],
+    input[type=city-Input],
+    input[type=email-Input],
+    input[type=name],
+    input[type=phone],
+    input[type=pk-Input] {
+        min-width: 20%;
+        max-width: 60%;
+        width: 50%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-right: 25px;
+        padding-left: 25px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
 }

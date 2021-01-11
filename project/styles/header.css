@@ -8,7 +8,7 @@
     text-decoration: none;
 }
 
-#a-Auth {
+#nav-Right {
     margin-right: 10%;
 }
 
@@ -151,5 +151,14 @@ header nav li {
     header nav li {
         display: inline;
         margin-left: 0%;
+    }
+    .menu-Left {
+        display: table-caption;
+        font-size: 14px;
+        margin-top: -15px;
+        margin-bottom: -16px;
+    }
+    .nav-Right .a-Auth li {
+        font-size: 13px;
     }
 }

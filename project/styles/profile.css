@@ -52,7 +52,7 @@
     cursor: default;
 }
 
-.button-Make-Admin {
+.button-Admin {
     border: 1px solid #202020;
     color: #202020;
     padding-left: 10px;
@@ -60,7 +60,30 @@
     background-color: #FFDF6C;
 }
 
-.button-Make-Admin:hover {
+.showAdminPowers {
+    display: none;
+    border: 1px solid #202020;
+    background-color: #FFDF6C;
+    color: #202020;
+    font-size: 13px;
+    padding-left: -20px;
+    padding-right: -20px;
+    padding-top: -30px;
+    padding-bottom: -30px;
+    font-weight: bold;
+    min-width: 100px;
+    max-width: 400px;
+    width: 150px;
+    z-index: 1;
+    position: absolute;
+    transform: translate(50%, -120%);
+    -webkit-transform: translate(50%, -120%);
+    -moz-transform: translate(50%, -120%);
+    -ms-transform: translate(50%, -120%);
+    -o-transform: translate(50%, -120%);
+}
+
+.button-Admin:hover {
     border: 1px solid #FFDF6C;
     color: #FFDF6C;
     padding-left: 10px;

@@ -17,29 +17,38 @@
 </div>
 
 {{#if isAdmin}}
+   
 <div id="profiles-Table-Container">
  <table class="profiles-Table">
   <thead>
     <tr> <th>Profile Name</th> <th>Profile Rights</th> <th>Make/Remove admin</th> </tr>
   </thead>
 
-  <tbody>
+  <tbody >
 {{#each users}}
    <tr>
     <td class="text-center">{{userEmail}}</td>
     {{#if admin}}
     <td>Admin</td>
        <td>
+          <div class="showAdminPowers">
+           <p>Removing the admin rights will take him the permission to: 
+              (create,edit,delete) products. </p>
+        </div>
         <a href="remove/{{userEmail}}/{{userId}}" onclick="removeAdmin(event)">
-           <button class="button-Make-Admin">Remove admin rights</button>
+           <button class="button-Admin">Remove admin rights</button>
         </a> 
       </td>
    </tr>
    {{else}}
    <td>User</td>
        <td>
-        <a href="give/{{userEmail}}/{{userId}}" onclick="giveAdmin(event)">
-           <button class="button-Make-Admin">Give admin rights</button>
+        <div class="showAdminPowers">
+           <p>Giving admin rights will give him the permission to: 
+              (create,edit,delete) products. </p>
+        </div>
+        <a  href="give/{{userEmail}}/{{userId}}" onclick="giveAdmin(event)">
+           <button class="button-Admin">Give admin rights</button>
         </a> 
       </td>
    </tr>
